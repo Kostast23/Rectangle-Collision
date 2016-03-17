@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <title>Rectangle Collision</title>
+        <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
+        <link href='styles.css' rel='stylesheet' type='text/css'>
+    </head>
+    <body>
+        <div class="container">
+            <h1>
+                <span class="blue">Recta<span id="js-word-1">ngle</span></span>
+                <span class="red"><span id="js-word-2">Coll</span>ision</span>
+            </h1>
+            <div id="right-col" class="col-md-5">
+                <div class="row">
+                    <h2>An interactive visualization of colliding rectangles.</h2>
+                </div>
+                <div class="row">
+                    <p>For two rectangles to collide all the following conditions must hold true at the same time.</p>
+                    <ul>
+                        <li><span id='js-cond-1'>A's right edge right of B's left edge</span></li>
+                        <li><span id='js-cond-2'>A's left edge left of B's right edge</span></li>
+                        <li><span id='js-cond-3'>A's bottom below B's top</span></li>
+                        <li><span id='js-cond-4'>A's top above B's bottom</span></li>
+                    </ul>
+                    <p>If the opposite <a href="https://en.wikipedia.org/wiki/De_Morgan%27s_laws">(De Morgan)</a> holds true there is no collision.
+                    In other words if at least one of the following conditions is true.</p>
+                    <ul>
+                        <li><span id='js-opp-cond-1'>A's right edge left of B's left edge</span></li>
+                        <li><span id='js-opp-cond-2'>A's left edge right of B's right edge</span></li>
+                        <li><span id='js-opp-cond-3'>A's bottom above B's top</span></li>
+                        <li><span id='js-opp-cond-4'>A's top below B's bottom</span></li>
+                    </ul>
+                </div>
+                <div class="row">
+                    <h2 id="collision-outcome" class="text-center">No Collision</h2>
+                </div>
+            </div>
+            <div class="col-md-7">
+                <canvas id="tutorial" width="640" height="480"></canvas>
+            </div>
+        </div>
+        <div class="container">
+            <p>Created with HTML5 Canvas, jQuery and Bootstrap.</p>
+            <p>Based on the <a href="https://silentmatt.com/rectangle-intersection/">original idea of Silent Matt.</a></p> 
+        </div>
+    </body>
+</html>
