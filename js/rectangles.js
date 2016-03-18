@@ -63,3 +63,42 @@ function moveActiveRectangle(x, y) {
     positionRectangle(active, x, y);
 }
 
+// Positions the rectangle rect to coordinates (x, y).
+// If (x, y) is a point outside the canvas area the coordinates are corrected.
+function positionRectangle(rect, x, y) {
+    if (x >= 0 && x + rect.width <= canvas.width) {
+        rect.left = x;
+        rect.right = rect.left + rect.width;
+    } else if (x < 0) {
+        rect.left = 0;
+        rect.right= rect.width;
+    } else if (x + rect.width > canvas.width) {
+        rect.left = canvas.width - rect.width;
+        rect.right = canvas.width;
+    }
+    if (y >= 0 && y + rect.height <= canvas.height) {
+        rect.top = y;
+        rect.bottom = rect.top + rect.height;
+    } else if (y < 0) {
+        rect.top = 0;
+        rect.bottom = rect.height;
+    } else if (y + rect.height > canvas.height) {
+        rect.top = canvas.height - rect.height;
+        rect.bottom = canvas.height;   
+    }
+}
+
+// Checks 4 conditions about the collision of rectA and rectB.
+function checkCollision() {
+    var conds = [false, false, false, false];
+    if (rectA.right >= rectB.left)
+        conds[0] = true;
+    if (rectB.right >= rectA.left)
+        conds[1] = true;
+    if (rectA.bottom >= rectB.top)
+        conds[2] = true;
+    if (rectB.bottom >= rectA.top)
+        conds[3] = true;
+    return conds;
+}
+
